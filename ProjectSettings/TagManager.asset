@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BigCircle
   - SmallCircle
+  - GameOver
+  - Background
   layers:
   - Default
   - TransparentFX

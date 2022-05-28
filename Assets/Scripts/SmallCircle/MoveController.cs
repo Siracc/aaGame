@@ -7,12 +7,17 @@ public class MoveController : MonoBehaviour
 {
     Rigidbody2D _rgdb;
     [SerializeField] float _speed;
-
+    GameObject _background;
   
 
     private void Awake()
     {
         _rgdb = GetComponent<Rigidbody2D>();
+        _background = GameObject.FindGameObjectWithTag("Background");
+
+    }
+    private void Start()
+    {
         
     }
 
@@ -41,14 +46,8 @@ public class MoveController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("SmallCircle"))
         {
-            StartCoroutine(GameOver());
+            _background.GetComponent<SpriteRenderer>().color = Color.red;           
+            
         }
-    }
-
-    IEnumerator GameOver()
-    {
-        yield return new WaitForSeconds(0.2f);
-        SceneManager.LoadScene(0);
-
-    }
+    }    
 }
